@@ -1,0 +1,30 @@
+#head{
+    background-color:brown;
+    width: 100%;
+    height: fit-content;
+    margin: 0px;
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 grey;
+}
+body{
+    background-color:white;
+    margin: 0px;
+}
+#start{
+    margin-left: 10%;
+}
+#start p{
+    font-size:30px;
+}
+#start a{
+    background-color: greenyellow;
+    font-size: 40px;
+    border-radius: 5px;
+    margin-left:45%;
+    text-decoration: none;
+    box-shadow: 0 4px 8px 0 white, 0 6px 20px 0 grey;;
+    
+
+}

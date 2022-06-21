@@ -1,0 +1,36 @@
+body{
+    margin: 0px;
+    background-color: #D7E5F0;
+}
+#dash{
+    font-size:30px;
+    color:gray;
+}
+.nav{
+    background-color:brown;
+    height:fit-content;
+}
+
+ul{
+    list-style-type: none;
+}
+li a{
+    text-decoration: none;
+    font-size:20px;
+    padding: 5px;
+    color:white;
+}
+a:hover {
+    text-decoration: none;
+    color:brown;
+    background-color:grey;
+    border-radius: 5px;
+    padding: 5px;
+  }
+
+.nl{ 
+    float: left;
+    color:brown;
+    font-size: 20px; 
+    text-decoration: none;
+   }
