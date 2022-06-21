@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 17, 2022 at 12:37 PM
+-- Generation Time: Jun 21, 2022 at 03:06 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -77,13 +77,10 @@ CREATE TABLE `price` (
 --
 
 INSERT INTO `price` (`id`, `varietyId`, `cost`, `qnty`, `descr`, `isavailable`) VALUES
-(1, 1, 55, '1kg', 'maize cooking flour grade 1', 1),
 (2, 3, 10, '1 pen', 'smooth and fine', 1),
 (3, 4, 65, '200 PAGES', 'LINED ', 1),
-(4, 4, 65, '200 PAGES', 'LINED ', 1),
-(5, 4, 65, '200 PAGES', 'LINED ', 1),
 (7, 5, 120, '250g', 'powder washing saop', 1),
-(8, 6, 1000, '1kg', 'powder washing soap', 0),
+(8, 6, 1000, '1kg', 'powder washing soap', 1),
 (9, 2, 100, '2kg', 'nil', 1),
 (10, 1, 150, '3kg', 'nil', 1),
 (11, 1, 100, '2kg', 'none', 1),
@@ -147,8 +144,7 @@ INSERT INTO `registration` (`id`, `Name`, `Username`, `Role`, `Email`, `Phoneno`
 (26, 'samu', 'samu', 2, 'samu@gmail.com', 1234567890, '1234567'),
 (27, 'kipruto kelvin', 'billkelvin', 2, 'user@gmail.com', 1234567890, '1234'),
 (28, 'NAME', 'N', 1, 'admin@gmail.com', 0, '1234'),
-(30, 'Cheruiyot', 'Arap', 2, 'arapcheruiyot@gmail.com', 725481520, '66746674'),
-(31, 'johbcodes', 'admin@admin.com', 2, 'biwottjoseah@gmail.com', 707070707, 'admin123');
+(30, 'Cheruiyot', 'Arap', 2, 'arapcheruiyot@gmail.com', 725481520, '66746674');
 
 -- --------------------------------------------------------
 
@@ -158,23 +154,19 @@ INSERT INTO `registration` (`id`, `Name`, `Username`, `Role`, `Email`, `Phoneno`
 
 CREATE TABLE `requests` (
   `id` int(11) NOT NULL,
-  `variety` text NOT NULL,
-  `status` enum('pending','delivered') NOT NULL DEFAULT 'pending'
+  `variety_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `status` enum('pending','delivered','completed','paid') NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `requests`
 --
 
-INSERT INTO `requests` (`id`, `variety`, `status`) VALUES
-(1, 'soko', 'pending'),
-(2, 'sembe', 'pending'),
-(3, 'soko', 'pending'),
-(4, 'soko', 'pending'),
-(5, 'soko', 'pending'),
-(6, 'soko', 'pending'),
-(7, 'soko', 'pending'),
-(8, 'sembe', 'pending');
+INSERT INTO `requests` (`id`, `variety_id`, `user_id`, `quantity`, `status`, `created_at`) VALUES
+(15, 1, 23, 0, 'pending', '2022-06-21 12:40:28');
 
 -- --------------------------------------------------------
 
@@ -249,7 +241,7 @@ ALTER TABLE `variety`
 -- AUTO_INCREMENT for table `knowledge`
 --
 ALTER TABLE `knowledge`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `price`
@@ -267,13 +259,13 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `requests`
 --
 ALTER TABLE `requests`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `variety`
